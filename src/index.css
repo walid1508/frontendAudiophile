@@ -1,0 +1,578 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.space-between-component{
+    @apply container mx-auto px-4 md:px-8 lg:px-32
+}
+
+.create-product-input{
+    @apply border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 py-2 px-4
+}
+
+.create-product-textarea{
+    @apply border border-gray-200 rounded-lg shadow-sm py-2 px-4 md:col-span-2 focus:border-blue-600 focus:outline-none focus:ring-0
+}
+
+
+
+
+
+:root {
+    font-family: "Manrope", sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #FFFFFF;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+}
+
+/**********************************************************
+Style pour la navbar
+ **********************************************************/
+
+.border-bottom{
+    border-bottom: 0.2px solid #a8a5a5;
+}
+
+/**************************************************************
+Style du hero section de la home page
+*************************************************************/
+
+
+.new-product-message{
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+.hero{
+    background-image: url("/public/img/home/desktop/image-hero.jpg");
+}
+
+@media screen and (max-width: 640px) {
+    .hero{
+        background-image: url("/public/img/home/phone/image-header.jpg");
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1024px){
+    .hero{
+        background-image: url("/public/img/home/tablet/image-header.jpg");
+    }
+}
+
+.hero-title{
+    color: #FFF;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 58px; /* 103.571% */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 24px 0;
+}
+
+
+.hero-message{
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 166.667% */
+}
+
+.hero-button{
+    width: 160px;
+    height: 48px;
+    flex-shrink: 0;
+    background: #D87D4A;
+    color: #FFF;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+
+.hero-button:hover{
+    background-color: #fbaf85;
+}
+
+/*****************************************************
+Style pour la Barre de navigation de categories
+ */
+
+.categorie-navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 120px 0;
+    gap: 20px;
+}
+
+.categories-navbar-card{
+    width: 350px;
+    height: 284px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #F1F1F1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.categories-navbar-card-title{
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.286px;
+    text-transform: uppercase;
+}
+
+
+.categories-navbar-card-button{
+    color: #000;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .categorie-navbar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 120px 0;
+        gap: 20px;
+    }
+
+    .categories-navbar-card{
+        width: 100%;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: #F1F1F1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+}
+
+
+/*****************************************************
+Style pour la large section des speakers
+ */
+
+.large-speaker-section{
+    height: 560px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #D87D4A;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.large-speaker-image{
+    width: 410.234px;
+    height: 493px;
+    flex-shrink: 0;
+    margin-top: 70px;
+    z-index: 1;
+}
+
+.large-sepaker-button{
+    flex-shrink: 0;
+    background: #000;
+    color: #FFF;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+
+
+.large-speaker-title{
+    color: #FFF;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 58px; /* 103.571% */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.large-speaker-message{
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 166.667% */
+}
+
+.l{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 640px) {
+    .large-speaker-section{
+        height: 600px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: #D87D4A;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .large-speaker-image{
+        width: 172.248px;
+        height: 207px;
+        flex-shrink: 0;
+    }
+
+    .large-speaker-title{
+        color: #FFF;
+        text-align: center;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 40px; /* 111.111% */
+        letter-spacing: 1.286px;
+        text-transform: uppercase;
+    }
+
+    .large-speaker-message{
+        color: #FFF;
+        text-align: center;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 25px; /* 166.667% */
+    }
+
+
+}
+
+@media (min-width: 640px) and (max-width: 1300px){
+    .large-speaker-section{
+        height: 720px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: #D87D4A;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .large-speaker-title{
+        color: #FFF;
+        text-align: center;
+        font-size: 56px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 58px; /* 103.571% */
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .large-speaker-message{
+        color: #FFF;
+        text-align: center;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 25px; /* 166.667% */
+    }
+
+    .large-speaker-image{
+        width: 197.212px;
+        height: 237px;
+        flex-shrink: 0;
+        margin-top: 70px;
+        z-index: 1;
+    }
+
+
+}
+
+/*****************************************************
+Style pour la small section des speakers
+ */
+
+.small-speaker-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0;
+    padding: 150px 0;
+    border-radius: 8px;
+    background-image: url("/public/img/home/desktop/image-speaker-zx7.jpg");
+}
+
+.hero-title-2{
+    color: #000;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.small-speaker-button{
+    width: 160px;
+    height: 48px;
+    flex-shrink: 0;
+    border: 1px solid #000;
+    color: #000;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 32px;
+}
+
+
+@media screen and (max-width: 640px) {
+
+    .small-speaker-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 20px;
+        border-radius: 8px;
+        background-image: url("/public/img/home/phone/image-speaker-zx7.jpg");
+        height: 500px;
+    }
+
+}
+
+
+@media (min-width: 640px) and (max-width: 1300px){
+
+    .small-speaker-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 20px;
+        border-radius: 8px;
+        background-image: url("/public/img/home/tablet/image-speaker-zx7.jpg");
+        height: auto;
+    }
+
+}
+
+
+
+/*****************************************************
+Style pour la small section des earphones
+ */
+
+.small-earphone-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0;
+    border-radius: 8px;
+}
+
+
+@media screen and (max-width: 640px) {
+
+    .small-earphone-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 50px 0;
+        border-radius: 8px;
+        gap: 20px;
+    }
+
+    .small-earphone-right{
+        min-height: 200px;
+        width: 100%;
+    }
+
+}
+
+
+@media (min-width: 640px) and (max-width: 1500px){
+
+    .small-earphone-section{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 50px 0;
+        border-radius: 8px;
+        gap: 20px;
+    }
+
+    .small-earphone-right{
+        max-height: 320px !important;
+        width: 100%;
+    }
+
+    .small-earphone-image{
+        width: 100%;
+        height: 320px;
+    }
+
+}
+
+
+
+
+/*****************************************************
+Style pour la section credit
+ */
+
+.credit-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 120px 0;
+    gap: 70px;
+}
+
+
+.best{
+    color: #D87D4A;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 1.429px;
+    text-transform: uppercase;
+}
+
+.credit-title{
+    color: #000;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px; /* 110% */
+    letter-spacing: 1.429px;
+    text-transform: uppercase;
+}
+
+.credit-content{
+    color: #000;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 166.667% */
+    margin-top: 32px;
+}
+
+#credit-image-desktop{
+    display: inline;
+    min-width: 500px !important;
+}
+
+#credit-image-tablet{
+    display: none;
+}
+
+#credit-image-phone{
+    display: none;
+}
+
+
+@media screen and (max-width: 640px) {
+
+    .credit-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 120px 0;
+        gap: 40px;
+    }
+
+
+    #credit-image-phone{
+        display: inline;
+    }
+
+    #credit-image-desktop{
+        display: none;
+    }
+
+    #credit-image-tablet{
+        display: none;
+    }
+
+}
+
+
+@media (min-width: 640px) and (max-width: 1300px){
+
+    .credit-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        margin: 120px 0;
+    }
+
+    #credit-image-desktop{
+        display: none;
+    }
+
+    #credit-image-tablet{
+        display: inline;
+    }
+
+    #credit-image-phone{
+        display: none;
+    }
+
+    .credit-top{
+        align-items: center;
+    }
+
+}
