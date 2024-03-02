@@ -48,6 +48,7 @@ const CreateCategory = ({ isModalOpenCreate, setIsModalOpenCreate, fetchCategori
                         <input
                             ref={inputRef}
                             type="text"
+                            autoComplete="off"
                             value={name}
                             onChange={e => setName(e.target.value)}
                             id="ProductPrice"
@@ -65,14 +66,14 @@ const CreateCategory = ({ isModalOpenCreate, setIsModalOpenCreate, fetchCategori
                     <div className="mt-4 flex justify-end">
                         <button
                             type="button"
-                            className="inline-flex justify-center rounded-lg border border-transparent shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-100 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+                            className="inline-flex justify-center rounded-full border border-transparent shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-100 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
                             onClick={() => setIsModalOpenCreate(false)}
                         >
                             Cancel
                         </button>
                         <button
                             type="button"
-                            className={`inline-flex justify-center rounded-lg border border-transparent shadow-sm px-4 py-2 text-base font-medium text-white sm:ml-3 sm:w-auto sm:text-sm ${isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-500'}`}
+                            className={`inline-flex justify-center rounded-full border border-transparent shadow-sm px-4 py-2 text-base font-medium text-white sm:ml-3 sm:w-auto sm:text-sm ${isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-500'}`}
                             onClick={handleSubmit}
                             disabled={!isFormValid()}
                         >

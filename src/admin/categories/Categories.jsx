@@ -31,7 +31,7 @@ const Categories = () => {
     }, []);
 
 
-    const notifyDelete = () => toast.info('Category deleted successfully!', {
+    const notifyDelete = () => toast.success('Category deleted successfully!', {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,

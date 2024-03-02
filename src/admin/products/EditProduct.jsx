@@ -11,7 +11,7 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
     const inputRef = useRef(null);
-    const [image, setImage] = useState();
+    const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
     const [features, setFeatures] = useState('');
     const [includes, setIncludes] = useState([{ quantity: '', item: '' }]);
@@ -26,7 +26,6 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
         if (isModalOpenEdit) {
             inputRef.current?.focus();
             if (product) {
-                // Assuming product includes all fields that need to be edited
                 setName(product.name);
                 setPrice(product.price);
                 setCategory(product.category);
@@ -36,6 +35,8 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
                 setGallery(product.gallery);
                 const pathProduct = `http://localhost:4000/images/products/` + product.image
                 setImage(pathProduct);
+                console.log("image : "+ product.image);
+                console.log("path : "+ pathProduct);
             }
         }
     }, [isModalOpenEdit, product]);
@@ -150,7 +151,21 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
                               </span>
                             </label>
 
-                            <label htmlFor="ProductCategory" className="form-label">Category</label>
+                            <label htmlFor="ProductCategory" className="form-label">Category
+                                {category ? (
+                                    <span>
+                                        : Current Category is
+                                        <span
+                                            className="text-green-600 font-bold underline ">
+                                            {category}
+                                        </span>
+                                    </span>
+                                ) : (
+                                    <span className="pl-3">
+                                        Please Select a Category
+                                    </span>
+                                )}
+                            </label>
                             <select
                                 id="ProductCategory"
                                 value={category}
@@ -182,7 +197,7 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
                             <h4 className="text-xl font-bold text-gray-700">{image ? "Image Uploaded" : "Upload Image"}</h4>
                             <div className="flex flex-col items-center justify-center w-full">
                                 {image ? (
-                                    <img id="uploadedImage" src="#" alt="Preview" className="w-20 h-20 rounded-lg"/>
+                                    <img id="uploadedImage" src={image} alt="Preview" className="w-20 h-20 rounded-lg"/>
                                 ) : (
                                     <label htmlFor="dropzone-file"
                                            className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 dark:hover:bg-gray-800 dark:bg-gray-700 dark:border-gray-600 dark:hover:border-gray-500">
@@ -205,7 +220,7 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
                                 )}
                                 {image && (
                                     <button
-                                        className="mt-2 p-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200"
+                                        className="mt-2 p-2 bg-blue-500 text-white font-semibold  rounded-full hover:bg-blue-700 transition duration-200"
                                         onClick={() => setImage(null)}
                                     >
                                         Change Image
@@ -226,14 +241,14 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
                         <div className="mt-6 flex justify-end space-x-3">
                             <button
                                 type="button"
-                                className="rounded-lg border border-gray-300 shadow-sm px-5 py-2 text-gray-700 hover:bg-gray-100 focus:outline-none"
+                                className="rounded-full border border-gray-300 shadow-sm px-5 py-2 text-gray-700 hover:bg-gray-100 focus:outline-none"
                                 onClick={() => setIsModalOpenEdit(false)}
                             >
                                 Cancel
                             </button>
                             <button
                                 type="button"
-                                className={`rounded-lg px-5 py-2 text-white shadow-sm ${isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'}`}
+                                className={`rounded-full px-5 py-2 text-white shadow-sm ${isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'}`}
                                 onClick={handleSubmit}
                                 disabled={!isFormValid()}
                             >

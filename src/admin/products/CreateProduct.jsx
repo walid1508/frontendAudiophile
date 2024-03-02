@@ -121,6 +121,7 @@ const CreateProduct = ({ isModalOpenCreate, setIsModalOpenCreate, fetchProducts,
                             <input
                                 ref={inputRef}
                                 type="text"
+                                autoComplete="off"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
                                 id="ProductName"
@@ -209,7 +210,7 @@ const CreateProduct = ({ isModalOpenCreate, setIsModalOpenCreate, fetchProducts,
                             )}
                             {image && (
                                 <button
-                                    className="mt-2 p-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200"
+                                    className="mt-2 p-2 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-700 transition duration-200"
                                     onClick={() => setImage(null)}
                                 >
                                     Change Image
@@ -230,14 +231,14 @@ const CreateProduct = ({ isModalOpenCreate, setIsModalOpenCreate, fetchProducts,
                     <div className="mt-6 flex justify-end space-x-3">
                         <button
                             type="button"
-                            className="rounded-lg border border-gray-300 shadow-sm px-5 py-2 text-gray-700 hover:bg-gray-100 focus:outline-none"
+                            className="rounded-full border border-gray-300 shadow-sm px-5 py-2 text-gray-700 hover:bg-gray-100 focus:outline-none"
                             onClick={() => setIsModalOpenCreate(false)}
                         >
                             Cancel
                         </button>
                         <button
                             type="button"
-                            className={`rounded-lg px-5 py-2 text-white shadow-sm ${isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'}`}
+                            className={`rounded-full px-5 py-2 text-white shadow-sm ${isFormValid() ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'}`}
                             onClick={handleSubmit}
                             disabled={!isFormValid()}
                         >

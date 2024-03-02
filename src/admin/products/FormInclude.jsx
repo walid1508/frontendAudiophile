@@ -65,15 +65,15 @@ function FormInclude({ includes, setIncludes }) {
 
                     <button
                         onClick={() => handleRemoveInclude(index)}
-                        className="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2">
-                        Remove
+                        className="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-4 py-2">
+                        X
                     </button>
                 </div>
             ))}
             <button
                 onClick={handleAddInclude}
-                className="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">
-                Add Another Item
+                className="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-extrabold rounded-full text-sm px-4 py-2">
+                +
             </button>
         </div>
     );
