@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CreateProduct from "./CreateProduct.jsx";
 import EditProduct from "./EditProduct.jsx";
+import { FaSortAlphaDownAlt, FaSortAlphaUp, FaSortNumericDownAlt, FaSortNumericUp } from 'react-icons/fa';
 
 
 const Products = () => {
@@ -15,13 +16,32 @@ const Products = () => {
     const [isModalOpenEdit, setIsModalOpenEdit] = useState(false);
     const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [sortField, setSortField] = useState('name');
+    const [sortDirection, setSortDirection] = useState('asc');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(5);
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
+
+
 
 
     const fetchProducts = () => {
         axios.get('http://localhost:4000/products')
             .then(res => {
                 console.log('Data received:', res.data);
-                setProducts(res.data);
+                const sortedData = res.data.sort((a, b) => a.name.localeCompare(b.name));
+                setProducts(sortedData);
                 setIsLoading(false);
             })
             .catch(error => console.error('Error: ', error));
@@ -32,7 +52,7 @@ const Products = () => {
     }, []);
 
 
-    const notifyDelete = () => toast.info('Product deleted successfully!', {
+    const notifyDelete = () => toast.success('Product deleted successfully!', {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -98,6 +118,22 @@ const Products = () => {
         }
     };
 
+    const toggleSort = (field) => {
+        const isAsc = sortField === field && sortDirection === 'asc';
+        setSortDirection(isAsc ? 'desc' : 'asc');
+        setSortField(field);
+
+        const sortedProducts = [...products].sort((a, b) => {
+            if (field === 'name') {
+                return isAsc ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name);
+            } else if (field === 'price') {
+                return isAsc ? b.price - a.price : a.price - b.price;
+            }
+        });
+
+        setProducts(sortedProducts);
+    };
+
 
     // const headphoneImagePath = "/img/home/desktop/image-category-thumbnail-headphones.png";
 
@@ -138,6 +174,10 @@ const Products = () => {
                         <tr>
                             <th scope="col" className="py-3 px-6">
                                 Product Name
+                                <button onClick={() => toggleSort('name')} className="pl-3 text-xl">
+                                    {sortField === 'name' && sortDirection === 'asc' ? <FaSortAlphaUp/> :
+                                        <FaSortAlphaDownAlt/>}
+                                </button>
                             </th>
                             <th scope="col" className="py-3 px-6">
                                 Image
@@ -147,6 +187,10 @@ const Products = () => {
                             </th>
                             <th scope="col" className="py-3 px-6">
                                 Price
+                                <button onClick={() => toggleSort('price')} className="pl-3 text-xl">
+                                    {sortField === 'price' && sortDirection === 'asc' ? <FaSortNumericUp/> :
+                                        <FaSortNumericDownAlt/>}
+                                </button>
                             </th>
                             <th scope="col" className="py-3 px-6">
                                 Actions
@@ -154,7 +198,7 @@ const Products = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        {products.map(product => (
+                        {currentProducts.map(product => (
                             <tr key={product._id}
                                 className="bg-white text-black border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td className="py-4 px-6">
@@ -191,6 +235,35 @@ const Products = () => {
                         ))}
                         </tbody>
                     </table>
+                    <nav aria-label="Page navigation" className="flex justify-center mt-4">
+                        <ul className="inline-flex items-center -space-x-px">
+                            <li>
+                                <button
+                                    onClick={() => setCurrentPage(currentPage - 1)}
+                                    disabled={currentPage === 1}
+                                    className={`flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-r-0 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${currentPage === 1 && 'opacity-50 cursor-not-allowed'}`}>
+                                    Prev
+                                </button>
+                            </li>
+                            {pageNumbers.map(number => (
+                                <li key={number}>
+                                    <button
+                                        onClick={() => paginate(number)}
+                                        className={`flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${currentPage === number && 'z-10 text-blue-600 border-blue-300 bg-blue-50 dark:bg-gray-700 dark:text-white'}`}>
+                                        {number}
+                                    </button>
+                                </li>
+                            ))}
+                            <li>
+                                <button
+                                    onClick={() => setCurrentPage(currentPage + 1)}
+                                    disabled={currentPage === pageNumbers.length}
+                                    className={`flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-l-0 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${currentPage === pageNumbers.length && 'opacity-50 cursor-not-allowed'}`}>
+                                    Next
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             )}
 

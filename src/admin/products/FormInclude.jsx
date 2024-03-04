@@ -48,6 +48,7 @@ function FormInclude({ includes, setIncludes }) {
                     >
                         <input
                             type="text"
+                            autoComplete="off"
                             id="itemName"
                             name="item"
                             value={include.item}

@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 import FormInclude from "./FormInclude.jsx";
-import FormGallery from "./FormGallery.jsx";
+
 
 // eslint-disable-next-line react/prop-types
 const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notifyEdit, product }) => {
@@ -51,6 +51,9 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
 
     useEffect(() => {
         fetchCategories();
+        console.log(gallery[0])
+        console.log(gallery[1])
+        console.log(gallery[2])
     }, []);
 
     const handleSubmit = (event) => {
@@ -156,7 +159,7 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
                                     <span>
                                         : Current Category is
                                         <span
-                                            className="text-green-600 font-bold underline ">
+                                            className="text-green-600 font-bold underline pl-1">
                                             {category}
                                         </span>
                                     </span>
@@ -230,12 +233,18 @@ const EditProduct = ({ isModalOpenEdit, setIsModalOpenEdit, fetchProducts, notif
                         </div>
 
 
-                        <div className="my-3">
-                            <FormGallery gallery={gallery} setGallery={setGallery}/>
+                        <div className="my-3 p-4 bg-white rounded-lg shadow space-y-4 border">
+                            <h4 className="text-xl font-bold text-gray-700">Gallery Images</h4>
+                            <div className="flex flex-row gap-10 items-center justify-center w-full">
+                                <img src={`http://localhost:4000/images/products/`+gallery[0]} alt="gallery1" className="w-32 h-32 rounded-lg"/>
+                                <img src={`http://localhost:4000/images/products/`+gallery[1]} alt="gallery2" className="w-32 h-32 rounded-lg"/>
+                                <img src={`http://localhost:4000/images/products/`+gallery[2]} alt="gallery3" className="w-32 h-32 rounded-lg"/>
+                            </div>
                         </div>
 
+
                         <div>
-                            <FormInclude includes={includes} setIncludes={setIncludes}/>
+                        <FormInclude includes={includes} setIncludes={setIncludes}/>
                         </div>
 
                         <div className="mt-6 flex justify-end space-x-3">
