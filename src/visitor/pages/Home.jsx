@@ -14,7 +14,6 @@ const Home = () => {
                 borderBottomLeftRadius: '10px',
                 borderBottomRightRadius: '10px'
             }}>
-
                 <div className="container mx-auto px-4 md:px-8 lg:px-32">
                     <Header/>
                     <div className="flex flex-col lg:flex-row bg-no-repeat sm:bg-center hero sm:mt-5"
