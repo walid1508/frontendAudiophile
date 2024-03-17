@@ -1,22 +1,19 @@
 import React from 'react';
-import Header from "../components/Header";
 import CategorieNav from "../components/CategorieNav";
 import LargeSpeaker from "../components/LargeSpeaker";
 import SmallSpeaker from "../components/SmallSpeaker";
 import SmallEarphone from "../components/SmallEarphone";
 import Credit from "../components/Credit";
-import Footer from "../components/Footer";
 
 const Home = () => {
     return (
-        <>
+        <main className="home__layout">
             <div className="bg-noir-1" style={{
                 borderBottomLeftRadius: '10px',
                 borderBottomRightRadius: '10px'
             }}>
                 <div className="container mx-auto px-4 md:px-8 lg:px-32">
-                    <Header/>
-                    <div className="flex flex-col lg:flex-row bg-no-repeat sm:bg-center hero sm:mt-5"
+                    <div className="flex flex-col lg:flex-row bg-no-repeat sm:bg-center hero"
                          style={{height: '80vh', width: '100%', backgroundSize: 'cover'}}>
                         <div
                             className="flex-1 flex flex-col justify-center items-center px-4 py-8 text-center sm:p-0 lg:items-start lg:text-left">
@@ -28,12 +25,11 @@ const Home = () => {
                                 Experience natural, lifelike audio and exceptional build quality made for the passionate
                                 music enthusiast.
                             </p>
-                            <button className="bg-orange-1 text-white py-2 px-4 hero-message">
+                            <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 hero-message">
                                 SEE PRODUCT
                             </button>
                         </div>
                         <div className="flex-1">
-
                         </div>
                     </div>
                 </div>
@@ -58,12 +54,7 @@ const Home = () => {
             <div className="space-between-component">
                 <Credit />
             </div>
-
-            <div style={{backgroundColor: '#101010'}}>
-                <Footer/>
-            </div>
-
-        </>
+        </main>
     );
 };
 

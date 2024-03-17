@@ -9,6 +9,12 @@ import Clients from "./admin/clients/Clients";
 import Products from "./admin/products/Products";
 import Categories from "./admin/categories/Categories";
 import Settings from "./admin/settings/Settings";
+import SignIn from "./auth/SignIn";
+import SignUp from "./auth/SignUp";
+import Catalog from "./visitor/pages/Catalog";
+import Speakers from "./visitor/pages/Speakers";
+import Headphones from "./visitor/pages/Headphones";
+import Earphones from "./visitor/pages/Earphones";
 
 
 function App() {
@@ -17,6 +23,10 @@ function App() {
           <Routes>
               <Route path="/" element={<VisitorLayout />} >
                   <Route index element={<Home />} />
+                    <Route path="earphones" element={<Earphones />} />
+                    <Route path="headphones" element={<Headphones />} />
+                    <Route path="speakers" element={<Speakers />} />
+                    <Route path="catalog" element={<Catalog />} />
               </Route>
 
 
@@ -30,6 +40,8 @@ function App() {
               </Route>
 
               <Route path="*" element={<NotFound />} />
+              <Route path="signin" element={<SignIn />} />
+              <Route path="signup" element={<SignUp />} />
 
           </Routes>
       </BrowserRouter>

@@ -10,7 +10,7 @@ const SmallSpeaker = () => {
                 <h3 className="hero-title-2">
                     ZX9 SPEAKER
                 </h3>
-                <button className="small-speaker-button">
+                <button className="small-speaker-button hover:bg-gray-950 hover:text-white">
                     SEE PRODUCT
                 </button>
             </div>

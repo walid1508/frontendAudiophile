@@ -1,3 +1,5 @@
+import DashCard from "./DashCard";
+import MonthlySalesReport from "./MonthlySalesReport";
 
 const Dashboard = () => {
     return (
@@ -6,7 +8,10 @@ const Dashboard = () => {
                 Dashboard
             </h3>
 
-            <h1 className="text-xl font-semibold">Hello from Dashboard</h1>
+            <DashCard />
+            <div className="mt-20">
+                <MonthlySalesReport />
+            </div>
         </div>
     );
 };

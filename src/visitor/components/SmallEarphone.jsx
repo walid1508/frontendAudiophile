@@ -17,7 +17,7 @@ const SmallEarphone = () => {
                 <h3 className="hero-title-2">
                     ZYX1 EARPHONES
                 </h3>
-                <button className="small-speaker-button">
+                <button className="small-speaker-button hover:bg-gray-950 hover:text-white">
                     SEE PRODUCT
                 </button>
             </div>
