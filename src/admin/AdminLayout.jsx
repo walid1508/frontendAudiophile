@@ -1,15 +1,19 @@
-import {NavLink, Outlet} from 'react-router-dom';
+import {NavLink, Outlet, Link} from 'react-router-dom';
+import {useContext} from "react";
+import {UserContext} from "../context/userContext";
 
 function AdminLayout() {
 
     const menuItemStyle = "relative flex flex-row items-center h-11 focus:outline-none hover:bg-orange-500 text-white hover:text-gray-100 border-l-4 border-transparent";
     const menuItemActiveStyle = `${menuItemStyle} bg-orange-500 text-slate-50`
 
+    const {user, logout} = useContext(UserContext);
+
     return (
         <div className="flex min-h-screen antialiased bg-gray-50 text-gray-800">
             <div className="fixed top-0 left-0 w-64 bg-noir-1 text-white h-full border-r">
                 <div className="flex items-center justify-center h-14 border-b">
-                    <div className="font-extrabold text-2xl">Audiophile</div>
+                    <Link to="/admin" className="font-extrabold text-2xl">Audiophile</Link>
                 </div>
                 <div className="overflow-y-auto overflow-x-hidden flex-grow">
                     <ul className="flex flex-col py-4 space-y-1">
@@ -142,7 +146,9 @@ function AdminLayout() {
                             <NavLink to="/"
                                      className={({isActive}) =>
                                          isActive ? menuItemActiveStyle : menuItemStyle
-                                     }>
+                                     }
+                                     onClick={logout}
+                            >
                             <span className="inline-flex justify-center items-center ml-4">
                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                      xmlns="http://www.w3.org/2000/svg"><path

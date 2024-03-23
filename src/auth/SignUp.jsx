@@ -8,7 +8,7 @@ import {toast} from "react-hot-toast";
 
 const SignUp = () => {
     const navigate = useNavigate();
-    const [iconColor, setIconColor] = useState('text-gray-400');
+    const [nameIcon, setNameIcon] = useState('text-orange-500');
     const [data, setData] = useState({
         name: '',
         email: '',
@@ -37,15 +37,9 @@ const SignUp = () => {
         }
     }
 
-    useEffect(() => {
-        if (data.name?.length >= 3){
-            setIconColor('text-green-500');
-        }
-        else {
-            setIconColor('text-red-500');
-        }
-    }, [data.name]);
-
+    const isFormValid = () => {
+        return data.name !== '' && data.email !== '' && data.password !== '' && data.confirmPassword !== '';
+    }
 
 
     return (
@@ -66,7 +60,7 @@ const SignUp = () => {
 
                         <form className="space-y-6" onSubmit={registerUser}>
                             <div className="flex align-middle">
-                                <IoPersonOutline className={`${iconColor} text-lg mt-2 mr-2`}/>
+                                <IoPersonOutline className={`${nameIcon} text-lg mt-2 mr-2`}/>
                                 <input type="text" id="name" className="w-full p-2 border rounded"
                                        placeholder="Full Name" required autoComplete="off"
                                        value={data.name} onChange={(e) => setData({...data, name: e.target.value})}
@@ -74,7 +68,7 @@ const SignUp = () => {
                             </div>
 
                             <div className="flex align-middle">
-                                <IoMailOutline className="text-gray-400 text-lg mt-2 mr-2"/>
+                                <IoMailOutline className={`${nameIcon} text-lg mt-2 mr-2`}/>
                                 <input type="email" id="email" className="w-full p-2 border rounded"
                                        placeholder="Email" required autoComplete="off"
                                        value={data.email} onChange={(e) => setData({...data, email: e.target.value})}
@@ -82,7 +76,7 @@ const SignUp = () => {
                             </div>
 
                             <div className="flex align-middle">
-                                <IoLockClosedOutline className="text-gray-400 text-lg mt-2 mr-2"/>
+                                <IoLockClosedOutline className={`${nameIcon} text-lg mt-2 mr-2`}/>
                                 <input type="password" id="password" className="w-full p-2 border rounded"
                                        placeholder="Password" required
                                        value={data.password}
@@ -91,7 +85,7 @@ const SignUp = () => {
                             </div>
 
                             <div className="flex align-middle">
-                                <IoCheckmarkDoneOutline className="text-gray-400 text-lg mt-2 mr-2"/>
+                                <IoCheckmarkDoneOutline className={`${nameIcon} text-lg mt-2 mr-2`}/>
                                 <input type="password" id="confirmPassword" className="w-full p-2 border rounded"
                                        placeholder="Confirm Password" required
                                        value={data.confirmPassword}
@@ -100,7 +94,9 @@ const SignUp = () => {
                             </div>
 
                             <button type="submit"
-                                    className="w-full flex justify-center items-center py-2 px-4 bg-orange-500 text-white rounded hover:bg-orange-600 focus:outline-none focus:bg-orange-600">
+                                    className={`w-full flex justify-center items-center py-2 px-4 ${isFormValid() ? 'bg-orange-500 text-white rounded hover:bg-orange-600 focus:outline-none focus:bg-orange-600' : 'bg-gray-300 text-gray-600 rounded cursor-not-allowed'}`}
+                                    disabled={!isFormValid()}
+                            >
                                 <IoArrowBack className="text-lg mr-2"/> Sign Up
                             </button>
                         </form>

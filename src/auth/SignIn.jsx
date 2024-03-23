@@ -55,7 +55,7 @@ const SignIn = () => {
 
                     <form className="space-y-6" onSubmit={loginUser}>
                         <div className="flex align-middle">
-                            <IoMailOutline className="text-gray-400 text-lg mt-2 mr-2"/>
+                            <IoMailOutline className="text-orange-500 text-lg mt-2 mr-2"/>
                             <input type="email" id="email" className="w-full p-2 border rounded"
                                    placeholder="Enter your email" required autoComplete="off"
                                    value={data.email} onChange={(e) => setData({...data, email: e.target.value})}
@@ -63,7 +63,7 @@ const SignIn = () => {
                         </div>
 
                         <div className="flex align-middle">
-                            <IoLockClosedOutline className="text-gray-400 text-lg mt-2 mr-2"/>
+                            <IoLockClosedOutline className="text-orange-500 text-lg mt-2 mr-2"/>
                             <input type="password" id="password" className="w-full p-2 border rounded"
                                    placeholder="Enter your password" required
                                    value={data.password} onChange={(e) => setData({...data, password: e.target.value})}
