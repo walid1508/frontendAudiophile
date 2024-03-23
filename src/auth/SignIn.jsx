@@ -1,8 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoMailOutline, IoLockClosedOutline, IoMusicalNotes } from 'react-icons/io5';
+import {useState} from "react";
+import axios from "axios";
+import {toast} from "react-hot-toast";
+import {useNavigate} from "react-router-dom";
+import {UserContext} from "../context/userContext";
+import {useContext} from "react";
 
 const SignIn = () => {
+    const [data, setData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const navigate = useNavigate();
+    const { user, setUser } = useContext(UserContext);
+
+    const loginUser = async (e) => {
+        e.preventDefault();
+        const { email, password } = data;
+
+        try {
+            const {data} = await axios.post('/login', { email, password });
+
+            if(data.error) {
+                return toast.error(data.error);
+            }
+            else{
+                setUser(data);
+                toast.success(`${data.name}, welcome back!`);
+                setData({ email: '', password: '' })
+                navigate('/');
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-200 p-4">
             <div className="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-300 bg-white rounded-lg shadow-xl w-full max-w-4xl">
@@ -17,17 +53,21 @@ const SignIn = () => {
                 <div className="md:w-1/2 p-8">
                     <h2 className="text-2xl font-extrabold text-gray-700 text-center mb-6">Connect to start your session</h2>
 
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={loginUser}>
                         <div className="flex align-middle">
                             <IoMailOutline className="text-gray-400 text-lg mt-2 mr-2"/>
                             <input type="email" id="email" className="w-full p-2 border rounded"
-                                   placeholder="Enter your email" required autoComplete="off"/>
+                                   placeholder="Enter your email" required autoComplete="off"
+                                   value={data.email} onChange={(e) => setData({...data, email: e.target.value})}
+                            />
                         </div>
 
                         <div className="flex align-middle">
                             <IoLockClosedOutline className="text-gray-400 text-lg mt-2 mr-2"/>
                             <input type="password" id="password" className="w-full p-2 border rounded"
-                                   placeholder="Enter your password" required/>
+                                   placeholder="Enter your password" required
+                                   value={data.password} onChange={(e) => setData({...data, password: e.target.value})}
+                            />
                         </div>
 
                         <button type="submit"

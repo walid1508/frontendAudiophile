@@ -5,7 +5,9 @@ import SmallSpeaker from "../components/SmallSpeaker";
 import SmallEarphone from "../components/SmallEarphone";
 import Credit from "../components/Credit";
 
+
 const Home = () => {
+
     return (
         <main className="home__layout">
             <div className="bg-noir-1" style={{
@@ -59,3 +61,6 @@ const Home = () => {
 };
 
 export default Home;
+
+
+///Users/waliddjato-kpane/Desktop/AI

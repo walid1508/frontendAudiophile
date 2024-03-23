@@ -1,8 +1,14 @@
 import React from 'react';
 import { IoCartOutline } from 'react-icons/io5';
+import { TbLogout } from "react-icons/tb";
 import { Link } from 'react-router-dom';
+import {useContext} from "react";
+import {UserContext} from "../../context/userContext";
+import Avvvatars from 'avvvatars-react';
+
 
 const Header = () => {
+    const { user, logout } = useContext(UserContext);
     return (
         <header className="bg-noir-1">
             <div className="container mx-auto px-4 md:px-6 lg:px-32 py-5">
@@ -34,12 +40,27 @@ const Header = () => {
                                     <li>
                                         <Link to="earphones">EARPHONES</Link>
                                     </li>
-                                    <li>
-                                        <Link to="signin">SIGN IN</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="signup">SIGN UP</Link>
-                                    </li>
+
+                                    {user ? (
+                                        <>
+                                            <li>
+                                                <Link to="profile">PROFILE</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/" onClick={logout}>LOGOUT</Link>
+                                            </li>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <li>
+                                                <Link to="signin">SIGN IN</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="signup">SIGN UP</Link>
+                                            </li>
+                                        </>
+                                    )}
+
                                 </ul>
                             </div>
                             <Link to="/" className="text-xl font-extrabold text-white ml-4 lg:ml-0">
@@ -66,14 +87,28 @@ const Header = () => {
                             </ul>
                         </nav>
                         <div className="flex items-center">
-                            <ul className="menu menu-horizontal p-0 hidden md:flex">
-                                <li>
-                                    <Link to="signin" className="font-semibold text-white hover:text-orange-500">SIGN IN</Link>
-                                </li>
-                                <li>
-                                    <Link to="signup" className="font-semibold text-white hover:text-orange-500">SIGN UP</Link>
-                                </li>
-                            </ul>
+
+                            {user ? (
+                                <>
+                                    <Link to="profile" className="text-white hover:text-orange-500">
+                                        <Avvvatars value={ user.name.toUpperCase()} displayValue={ user.name.toUpperCase()} />
+                                    </Link>
+                                    <Link to="/" onClick={logout} className="ml-4 text-white hover:text-orange-500">
+                                        <TbLogout size="24px" className="text-white hover:text-orange-500" />
+                                    </Link>
+                                </>
+                            ) : (
+                                <>
+                                    <Link to="signin" className="text-white hover:text-orange-500">
+                                        Log In
+                                    </Link>
+                                    <Link to="signup" className="ml-4 text-white hover:text-orange-500">
+                                        Register
+                                    </Link>
+                                </>
+                            )}
+
+
                             <button className="ml-4 ">
                                 <IoCartOutline className="text-white hover:text-orange-500" size="24px" />
                             </button>
