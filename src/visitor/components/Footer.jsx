@@ -33,7 +33,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="mt-12 border-t border-gray-100 pt-6">
+                <div className="mt-12 border-t border-gray-600 pt-6">
                     <div className="text-center sm:flex sm:justify-between">
                         <p className="text-sm text-white">&copy; 2024 Audiophile. All rights reserved.</p>
                         <div className="mt-4 sm:mt-0">

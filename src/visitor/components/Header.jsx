@@ -12,7 +12,7 @@ const Header = () => {
     return (
         <header className="bg-noir-1">
             <div className="container mx-auto px-4 md:px-6 lg:px-32 py-5">
-                <div className="border-b border-white pb-8">
+                <div className="border-b border-gray-600 pb-8">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center">
                             <div className="dropdown">
