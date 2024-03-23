@@ -1,7 +1,14 @@
+import {useNavigate} from "react-router-dom";
 
 const LargeSpeaker = () => {
     const svgPath = '/img/home/desktop/pattern-circles.svg';
     const largeSpeakerImage = '/img/home/tablet/image-speaker-zx9.png';
+    const navigate = useNavigate();
+
+    const navigateSpeaker = () => {
+        navigate('/speakers')
+    }
+
     return (
         <div className="large-speaker-section">
             <div className="l" style={{
@@ -21,7 +28,7 @@ const LargeSpeaker = () => {
                     Experience natural, lifelike audio and exceptional build quality made for the passionate
                     music enthusiast.
                 </p>
-                <button className="large-sepaker-button btn-md">
+                <button onClick={navigateSpeaker} className="large-sepaker-button btn-md">
                     SEE PRODUCT
                 </button>
             </div>

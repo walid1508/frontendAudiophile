@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import CategorieNav from "../components/CategorieNav";
 import LargeSpeaker from "../components/LargeSpeaker";
 import SmallSpeaker from "../components/SmallSpeaker";
@@ -27,9 +28,9 @@ const Home = () => {
                                 Experience natural, lifelike audio and exceptional build quality made for the passionate
                                 music enthusiast.
                             </p>
-                            <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 hero-message">
+                            <Link to="headphones" className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 hero-message">
                                 SEE PRODUCT
-                            </button>
+                            </Link>
                         </div>
                         <div className="flex-1">
                         </div>

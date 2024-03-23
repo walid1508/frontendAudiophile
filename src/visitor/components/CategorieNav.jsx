@@ -1,4 +1,4 @@
-
+import {Link} from 'react-router-dom';
 
 const CategorieNav = () => {
 
@@ -15,7 +15,7 @@ const CategorieNav = () => {
                 backgroundPosition: 'center'
             }}>
                 <h4 className="categories-navbar-card-title">HEADPHONES</h4>
-                <button className="categories-navbar-card-button">SHOP</button>
+                <Link to="headphones" className="categories-navbar-card-button">SHOP</Link>
             </div>
             <div className="categories-navbar-card" style={{
                 backgroundImage: `url(${speakerImagePath})`,
@@ -24,7 +24,7 @@ const CategorieNav = () => {
                 backgroundPosition: 'center'
             }}>
                 <h4 className="categories-navbar-card-title">SPEAKERS</h4>
-                <button className="categories-navbar-card-button">SHOP</button>
+                <Link to="speakers" className="categories-navbar-card-button">SHOP</Link>
             </div>
             <div className="categories-navbar-card" style={{
                 backgroundImage: `url(${earphoneImagePath})`,
@@ -33,7 +33,7 @@ const CategorieNav = () => {
                 backgroundPosition: 'center'
             }}>
                 <h4 className="categories-navbar-card-title">EARPHONES</h4>
-                <button className="categories-navbar-card-button">SHOP</button>
+                <Link to="earphones" className="categories-navbar-card-button">SHOP</Link>
             </div>
         </div>
     );

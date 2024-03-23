@@ -1,6 +1,11 @@
-
+import {useNavigate} from "react-router-dom";
 
 const SmallSpeaker = () => {
+    const navigate = useNavigate();
+    const navigateSpeaker = () => {
+        navigate('/speakers')
+    }
+
     return (
         <div className="small-speaker-section" style={{
             backgroundRepeat: 'no-repeat',
@@ -10,7 +15,7 @@ const SmallSpeaker = () => {
                 <h3 className="hero-title-2">
                     ZX9 SPEAKER
                 </h3>
-                <button className="small-speaker-button hover:bg-gray-950 hover:text-white">
+                <button onClick={navigateSpeaker} className="small-speaker-button hover:bg-gray-950 hover:text-white">
                     SEE PRODUCT
                 </button>
             </div>
