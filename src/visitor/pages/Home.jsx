@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import CategorieNav from "../components/CategorieNav";
 import LargeSpeaker from "../components/LargeSpeaker";
 import SmallSpeaker from "../components/SmallSpeaker";
@@ -11,6 +12,10 @@ const Home = () => {
 
     return (
         <main className="home__layout">
+            <Helmet>
+                <title>Audiophile | Home</title>
+                <meta name="description" content="home page" />
+            </Helmet>
             <div className="bg-noir-1" style={{
                 borderBottomLeftRadius: '10px',
                 borderBottomRightRadius: '10px'

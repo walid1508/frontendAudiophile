@@ -5,6 +5,7 @@ import {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-hot-toast";
+import {Helmet} from "react-helmet";
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -45,6 +46,10 @@ const SignUp = () => {
     return (
         <>
             <div className="flex justify-center items-center min-h-screen bg-gray-200 p-4">
+                <Helmet>
+                    <title>Audiophile | Register</title>
+                    <meta name="description" content="Register page" />
+                </Helmet>
                 <div
                     className="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-300 bg-white rounded-lg shadow-xl w-full max-w-4xl">
                     <div className="md:w-1/2 p-8 flex flex-col justify-center items-center text-center">

@@ -1,7 +1,8 @@
 import DashCard from "./DashCard";
 import MonthlySalesReport from "./MonthlySalesReport";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
+import {Helmet} from "react-helmet";
 
 const Dashboard = () => {
     const [categories, setCategories] = useState([]);
@@ -44,6 +45,10 @@ const Dashboard = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Audiophile | Admin</title>
+                <meta name="description" content="Admin page" />
+            </Helmet>
             <h3 className="text-2xl font-extralight p-4">
                 Dashboard
             </h3>
