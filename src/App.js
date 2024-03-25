@@ -53,10 +53,10 @@ function App() {
               <Routes>
                   <Route path="/" element={<VisitorLayout />} >
                       <Route index element={<Home />} />
-                      <Route path="earphones" element={<Earphones />} />
+                      <Route path="earphones" element={<Earphones products = {products}/>} />
                       <Route path="headphones" element={<Headphones products = {products}/>} />
                       <Route path="speakers" element={<Speakers products = {products} />} />             
-                      <Route path="profile" element={<Profile products = {products} />} />
+                      <Route path="profile" element={<Profile  />} />
                   </Route>
 
 

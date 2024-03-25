@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const Headphones = ({ products }) => {
 
-    console.log(products)
+    console.log( "products....",products)
     const headphones = products.filter(product => product.category === 'Headphones');
     const navigate = useNavigate();
 
