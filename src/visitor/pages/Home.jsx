@@ -9,7 +9,6 @@ import Credit from "../components/Credit";
 
 
 const Home = () => {
-
     return (
         <main className="home__layout">
             <Helmet>

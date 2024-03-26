@@ -6,6 +6,7 @@ import ConfirmationModal from "../shared/ConfirmationModal";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaSortAlphaDownAlt, FaSortAlphaUp } from 'react-icons/fa';
+import CategoryCard from "./CategoryCard";
 
 
 const Categories = () => {
@@ -95,7 +96,7 @@ const Categories = () => {
             .catch(error => console.error('Error deleting category:', error));
     };
 
-    const editCategory = (categoryId, name) => {
+    const editCategory = (categoryId, name, email) => {
         axios.put(`http://localhost:4000/categories/${categoryId}`, { name })
             .then(() => {
                 fetchCategories();
@@ -186,25 +187,14 @@ const Categories = () => {
                         </thead>
                         <tbody>
                         {currentCategories.map(category => (
-                            <tr key={category._id}
-                                className="bg-white text-black border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td className="py-4 px-6">
-                                    {category.name}
-                                </td>
-                                <td className="py-4 px-6">
-                                    <button
-                                        onClick={() => handleEditClick(category)}
-                                        className="font-medium text-white dark:text-white px-4 py-1 rounded-full bg-blue-500 hover:bg-blue-600   mr-3"
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        className="font-medium text-white dark:text-white px-4 py-1 rounded-full bg-red-500 hover:bg-red-600"
-                                        onClick={() => openConfirmationModal(category._id)}>
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
+                            <CategoryCard
+                                key={category._id}
+                                categoryId={category._id}
+                                categoryName={category.name}
+                                category={category}
+                                handleEditClick={handleEditClick}
+                                openConfirmationModal={openConfirmationModal}
+                            />
                         ))}
                         </tbody>
                     </table>

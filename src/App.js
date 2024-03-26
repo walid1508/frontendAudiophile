@@ -20,6 +20,7 @@ import Headphones from "./visitor/pages/Headphones";
 import Earphones from "./visitor/pages/Earphones";
 import Profile from "./visitor/pages/Profile";
 
+
 //Axios' configuration for the auth routes
 axios.defaults.baseURL = 'http://localhost:4000/auth';
 axios.defaults.withCredentials = true;

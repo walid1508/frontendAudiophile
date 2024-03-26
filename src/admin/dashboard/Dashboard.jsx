@@ -23,7 +23,6 @@ const Dashboard = () => {
                 setProducts(res.data);
             })
             .catch(error => console.error('Error: ', error));
-
     }
 
     const fetchUsers = () => {

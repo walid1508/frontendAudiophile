@@ -92,8 +92,6 @@ const Products = () => {
             .catch(error => console.error('Error deleting product:', error));
     };
 
-
-
     const handleEditClick = (product) => {
         setCurrentProduct(product);
         setIsModalOpenEdit(true);
