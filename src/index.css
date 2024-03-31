@@ -674,25 +674,13 @@ Style pour la section x99 Headphone
         gap: 40px;
     }
 
-    .xx99-headphones-gold-section{
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
-        margin: 120px 0;
-        gap: 40px;
-    }
-    #xx99-headphones-black-phone{
+
+ 
+
+    #xx99-headphones-black-desktop{
         display: inline;
     }
 
-    #xx99-headphones-black-desktop{
-        display: none;
-    }
-
-    #xx99-headphones-black-tablet{
-        display: none;
-    }
 
 }
 
@@ -709,19 +697,18 @@ Style pour la section x99 Headphone
     }
 
     #xx99-headphones-black-desktop{
-        display: none;
-    }
-
-    #xx99-headphones-black-tablet{
         display: inline;
     }
 
-    #xx99-headphones-black-phone{
-        display: none;
-    }
+ 
 
     .credit-top{
         align-items: center;
+    }
+
+    .xx99-headphones-black{
+
+        display: inline;
     }
 
 }

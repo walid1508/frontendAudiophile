@@ -19,7 +19,7 @@ const Speakers = ({ products }) => {
     return (
         <div className="text-3xl font-extralight text-center">
             <Helmet>
-                <title>Audiophile | Headphones</title>
+                <title>Audiophile | Speakers</title>
                 <meta name="description" content="Speakers page" />
             </Helmet>
             <TitleCard title={"SPEAKERS"} />

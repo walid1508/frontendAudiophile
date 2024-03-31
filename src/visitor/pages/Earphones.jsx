@@ -21,7 +21,7 @@ const Earphones = ({products}) => {
     return (
         <div className="text-3xl font-extralight text-center">
             <Helmet>
-                <title>Audiophile | Headphones</title>
+                <title>Audiophile | Earphones</title>
                 <meta name="description" content="Headphones page" />
             </Helmet>
             <TitleCard title={"EARPHONES"} />

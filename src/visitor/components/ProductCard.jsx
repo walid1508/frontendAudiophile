@@ -8,7 +8,7 @@ const ProductCard = ({product_id, product_name, product_image, product_descripti
     return (
         <li key={product_id} className="xx99-headphones-black-section">
             <div>
-                <img src={product_image} alt="" className="rounded-lg xx99-headphones-black" id="xx99-headphones-black-desktop" />        
+                <img src={product_image} alt="" className="w-full rounded-lg xx99-headphones-black" id="xx99-headphones-black-desktop" />        
             </div>
             
             <div className="xx99-description-section">

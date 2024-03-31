@@ -185,6 +185,7 @@ const Categories = () => {
                         </tr>
                         </thead>
                         <tbody>
+                            
                         {currentCategories.map(category => (
                             <tr key={category._id}
                                 className="bg-white text-black border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
