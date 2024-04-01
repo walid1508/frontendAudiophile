@@ -186,6 +186,7 @@ const Categories = () => {
                         </tr>
                         </thead>
                         <tbody>
+                            
                         {currentCategories.map(category => (
                             <CategoryCard
                                 key={category._id}

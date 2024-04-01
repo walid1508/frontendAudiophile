@@ -14,18 +14,39 @@ import Categories from "./admin/categories/Categories";
 import Settings from "./admin/settings/Settings";
 import SignIn from "./auth/SignIn";
 import SignUp from "./auth/SignUp";
-import Catalog from "./visitor/pages/Catalog";
 import Speakers from "./visitor/pages/Speakers";
 import Headphones from "./visitor/pages/Headphones";
 import Earphones from "./visitor/pages/Earphones";
 import Profile from "./visitor/pages/Profile";
+import React, {useEffect, useState} from "react";
 
 
 //Axios' configuration for the auth routes
 axios.defaults.baseURL = 'http://localhost:4000/auth';
 axios.defaults.withCredentials = true;
 
+
+
 function App() {
+  
+    const [products, setProducts] = useState([]);
+
+    const fetchProducts = () => {
+        axios.get('http://localhost:4000/products')
+            .then(res => {
+                setProducts(res.data);
+            })
+            .catch(error => console.error('Error: ', error));
+
+    }
+
+    useEffect(() => {
+      
+        fetchProducts();
+
+    }, []);
+
+
   return (
       <UserContextProvider>
           <Toaster position='bottom-right' toastOptions={{duration: 5000}} />
@@ -33,11 +54,10 @@ function App() {
               <Routes>
                   <Route path="/" element={<VisitorLayout />} >
                       <Route index element={<Home />} />
-                      <Route path="earphones" element={<Earphones />} />
-                      <Route path="headphones" element={<Headphones />} />
-                      <Route path="speakers" element={<Speakers />} />
-                      <Route path="catalog" element={<Catalog />} />
-                      <Route path="profile" element={<Profile />} />
+                      <Route path="earphones" element={<Earphones products = {products}/>} />
+                      <Route path="headphones" element={<Headphones products = {products}/>} />
+                      <Route path="speakers" element={<Speakers products = {products} />} />             
+                      <Route path="profile" element={<Profile  />} />
                   </Route>
 
 

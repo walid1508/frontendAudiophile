@@ -29,9 +29,6 @@ const Header = () => {
                                         <Link to="/">HOME</Link>
                                     </li>
                                     <li>
-                                        <Link to="catalog">CATALOG</Link>
-                                    </li>
-                                    <li>
                                         <Link to="headphones">HEADPHONES</Link>
                                     </li>
                                     <li>
@@ -71,9 +68,6 @@ const Header = () => {
                             <ul className="menu menu-horizontal p-0">
                                 <li>
                                     <Link to="/" className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">HOME</Link>
-                                </li>
-                                <li>
-                                    <Link to="catalog" className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">CATALOG</Link>
                                 </li>
                                 <li>
                                     <Link to="headphones" className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">HEADPHONES</Link>

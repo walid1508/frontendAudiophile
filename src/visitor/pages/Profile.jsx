@@ -3,6 +3,7 @@ import {useContext} from "react";
 import {UserContext} from "../../context/userContext";
 import Avvvatars from 'avvvatars-react';
 import {Helmet} from "react-helmet";
+import TitleCard from '../components/TitleCard';
 
 const Profile = () => {
     const {user} = useContext(UserContext);
@@ -14,12 +15,14 @@ const Profile = () => {
     ];
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-8 bg-gray-50">
+   <div>
+      <TitleCard title = {'Profile'} />
+     <div className="max-w-4xl mx-auto px-4 py-8 bg-gray-50">
             <Helmet>
                 <title>Audiophile | Profile</title>
                 <meta name="description" content="Profile page" />
             </Helmet>
-            <h1 className="text-3xl font-bold text-gray-800 mb-8">Profile</h1>
+           
             <div className="mb-10">
                 <h2 className="text-xl font-semibold text-gray-700 mb-6">Personal information</h2>
                 <div className="bg-white shadow-md rounded-lg p-6 flex items-center space-x-4">
@@ -50,6 +53,8 @@ const Profile = () => {
                 </div>
             </div>
         </div>
+
+   </div>
     );
 };
 
