@@ -16,7 +16,7 @@ const SignIn = () => {
     });
 
     const navigate = useNavigate();
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
 
     const loginUser = async (e) => {
         e.preventDefault();
@@ -41,7 +41,7 @@ const SignIn = () => {
     }
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-200 p-4">
+        <div className="flex justify-center items-center min-h-screen bg-gray-900 p-4">
             <Helmet>
                 <title>Audiophile | Login</title>
                 <meta name="description" content="Login page" />

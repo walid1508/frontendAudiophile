@@ -1,4 +1,3 @@
-import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { IoPersonOutline, IoMailOutline, IoLockClosedOutline, IoCheckmarkDoneOutline, IoMusicalNotes, IoArrowBack } from 'react-icons/io5';
 import {useState} from "react";
@@ -39,13 +38,13 @@ const SignUp = () => {
     }
 
     const isFormValid = () => {
-        return data.name !== '' && data.email !== '' && data.password !== '' && data.confirmPassword !== '';
+        return data.name !== '' && data.email !== '' && data.password !== '' && data.confirmPassword !== '' && data.password === data.confirmPassword;
     }
 
 
     return (
         <>
-            <div className="flex justify-center items-center min-h-screen bg-gray-200 p-4">
+            <div className="flex justify-center items-center min-h-screen bg-gray-900 p-4">
                 <Helmet>
                     <title>Audiophile | Register</title>
                     <meta name="description" content="Register page" />

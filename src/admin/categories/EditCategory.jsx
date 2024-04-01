@@ -6,7 +6,6 @@ const EditCategory = ({ isModalOpenEdit, setIsModalOpenEdit, fetchCategories, ed
     const [name, setName] = useState('');
 
 
-
     useEffect(() => {
         // eslint-disable-next-line react/prop-types
         if (category && category.name) {
