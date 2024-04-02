@@ -16,29 +16,39 @@ const SignIn = () => {
     });
 
     const navigate = useNavigate();
-    const { setUser } = useContext(UserContext);
+    const { user, setUser, isLoading } = useContext(UserContext);
+
 
     const loginUser = async (e) => {
         e.preventDefault();
         const { email, password } = data;
 
         try {
-            const {data} = await axios.post('/login', { email, password });
+            const { data: userData } = await axios.post('/login', { email, password });
 
-            if(data.error) {
-                return toast.error(data.error);
+            if (userData.error) {
+                return toast.error(userData.error);
+            } else {
+                setUser(userData);
+                toast.success(`${userData.name}, welcome back!`);
+                setData({ email: '', password: '' });
+
+                const userRoles = Object.values(userData.roles || {});
+
+                if (userRoles.includes(5505)) {
+                    navigate('/admin');
+                } else if (userRoles.includes(2001)) {
+                    navigate('/');
+                } else {
+                    navigate('/');
+                }
             }
-            else{
-                setUser(data);
-                toast.success(`${data.name}, welcome back!`);
-                setData({ email: '', password: '' })
-                navigate('/');
-            }
+        } catch (error) {
+            console.error(error);
+            toast.error('An error occurred during login.');
         }
-        catch (error) {
-            console.log(error);
-        }
-    }
+    };
+
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-900 p-4">

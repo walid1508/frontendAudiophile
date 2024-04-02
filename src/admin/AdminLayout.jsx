@@ -1,13 +1,19 @@
 import {NavLink, Outlet, Link} from 'react-router-dom';
-import {useContext} from "react";
+import React, {useContext} from "react";
 import {UserContext} from "../context/userContext";
+import SkeletonLoader from "../visitor/components/SkeletonLoader";
+import Avvvatars from "avvvatars-react";
 
 function AdminLayout() {
 
     const menuItemStyle = "relative flex flex-row items-center h-11 focus:outline-none hover:bg-orange-500 text-white hover:text-gray-100 border-l-4 border-transparent";
     const menuItemActiveStyle = `${menuItemStyle} bg-orange-500 text-slate-50`
 
-    const {user, logout} = useContext(UserContext);
+    const {user, logout, isLoading} = useContext(UserContext);
+
+    if (isLoading) {
+        return <SkeletonLoader />;
+    }
 
     return (
         <div className="flex min-h-screen antialiased bg-gray-50 text-gray-800">
@@ -15,6 +21,19 @@ function AdminLayout() {
                 <div className="flex items-center justify-center h-14 border-b">
                     <Link to="/admin" className="font-extrabold text-2xl">Audiophile</Link>
                 </div>
+
+                <div className="w-full px-5 py-4">
+                    <div className="flex items-center justify-center">
+                        <div className="text-center text-sm font-light">
+                            <div className="flex justify-center mb-2">
+                                <Avvvatars value={user?.name?.toUpperCase()} className="w-12 h-12 rounded-full" style={"shape"}/>
+                            </div>
+                            <span className="text-gray-400">Logged in as</span>
+                            <span className="block text-xl font-medium text-white">{user?.name} (Admin)</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="overflow-y-auto overflow-x-hidden flex-grow">
                     <ul className="flex flex-col py-4 space-y-1">
                         <li className="px-5">

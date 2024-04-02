@@ -6,9 +6,12 @@ import LargeSpeaker from "../components/LargeSpeaker";
 import SmallSpeaker from "../components/SmallSpeaker";
 import SmallEarphone from "../components/SmallEarphone";
 import Credit from "../components/Credit";
+import {useContext} from "react";
+import {UserContext} from "../../context/userContext";
 
 
 const Home = () => {
+    const {user} = useContext(UserContext);
     return (
         <main className="home__layout">
             <Helmet>
@@ -41,6 +44,10 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            {
+                user ? ( <div className="text-center mt-8"> <Link to="profile" className="text-orange-500">Go to profile</Link> </div> ) : null
+            }
 
             <div className="space-between-component">
                 <CategorieNav/>
