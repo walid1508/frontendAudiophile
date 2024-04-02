@@ -57,20 +57,23 @@ function App() {
                       <Route index element={<Home />} />
                       <Route path="earphones" element={<Earphones products = {products}/>} />
                       <Route path="headphones" element={<Headphones products = {products}/>} />
-                      <Route path="speakers" element={<Speakers products = {products} />} />             
-                      <Route path="profile" element={<Profile  />} />
+                      <Route path="speakers" element={<Speakers products = {products} />} />
+
+                      <Route element={<RequiredAuth allowedRoles={[2001]} />}>
+                            <Route path="profile" element={<Profile  />} />
+                      </Route>
                   </Route>
 
 
                   <Route path="/admin" element={<AdminLayout />} >
                       <Route element={<RequiredAuth allowedRoles={[5505]} />}>
                           <Route index element={<Dashboard />} />
+                          <Route path="sales" element={<Sales />} />
+                          <Route path="clients" element={<Clients />} />
+                          <Route path="products" element={<Products />} />
+                          <Route path="categories" element={<Categories />} />
+                          <Route path="settings" element={<Settings />} />
                       </Route>
-                      <Route path="sales" element={<Sales />} />
-                      <Route path="clients" element={<Clients />} />
-                      <Route path="products" element={<Products />} />
-                      <Route path="categories" element={<Categories />} />
-                      <Route path="settings" element={<Settings />} />
                   </Route>
 
                   <Route path="*" element={<NotFound />} />

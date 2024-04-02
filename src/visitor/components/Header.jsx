@@ -85,7 +85,7 @@ const Header = () => {
                             {user ? (
                                 <>
                                     <Link to="profile" className="text-white hover:text-orange-500">
-                                        <Avvvatars value={ user.name.toUpperCase()} displayValue={ user.name.toUpperCase()} />
+                                        <Avvvatars value={ user.name.toUpperCase()} displayValue={ user.name.toUpperCase()} style={"shape"} />
                                     </Link>
                                     <Link to="/" onClick={logout} className="ml-4 text-white hover:text-orange-500">
                                         <TbLogout size="24px" className="text-white hover:text-orange-500" />

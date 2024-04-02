@@ -18,7 +18,7 @@ function AdminLayout() {
     return (
         <div className="flex min-h-screen antialiased bg-gray-50 text-gray-800">
             <div className="fixed top-0 left-0 w-64 bg-noir-1 text-white h-full border-r">
-                <div className="flex items-center justify-center h-14 border-b">
+                <div className="flex items-center justify-center h-14 border-b py-10">
                     <Link to="/admin" className="font-extrabold text-2xl">Audiophile</Link>
                 </div>
 
@@ -26,7 +26,9 @@ function AdminLayout() {
                     <div className="flex items-center justify-center">
                         <div className="text-center text-sm font-light">
                             <div className="flex justify-center mb-2">
-                                <Avvvatars value={user?.name?.toUpperCase()} className="w-12 h-12 rounded-full" style={"shape"}/>
+                                <Avvvatars value={user?.name} className="w-12 h-12 rounded-full" style={"shape"}
+                                           border={true} borderColor={"green"} borderSize={3}
+                                />
                             </div>
                             <span className="text-gray-400">Logged in as</span>
                             <span className="block text-xl font-medium text-white">{user?.name} (Admin)</span>

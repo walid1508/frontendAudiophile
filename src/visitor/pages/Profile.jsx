@@ -24,19 +24,19 @@ const Profile = () => {
             </Helmet>
            
             <div className="mb-10">
-                <h2 className="text-xl font-semibold text-gray-700 mb-6">Personal information</h2>
+                <h2 className="text-2xl font-semibold text-gray-700 mb-6">Personal information</h2>
                 <div className="bg-white shadow-md rounded-lg p-6 flex items-center space-x-4">
                     <div className="flex-shrink-0">
-                        <Avvvatars value={user?.name?.toUpperCase()} size={60}/>
+                        <Avvvatars value={user?.name?.toUpperCase()} size={60} style={"shape"}/>
                     </div>
                     <div>
-                        <p className="text-gray-900 font-semibold">{user?.name}</p>
+                        <p className="text-gray-900 text-xl font-semibold">{user?.name}</p>
                         <p className="text-gray-600">{user?.email}</p>
                     </div>
                 </div>
             </div>
             <div>
-                <h2 className="text-xl font-semibold text-gray-700 mb-6">Orders</h2>
+                <h2 className="text-2xl font-semibold text-gray-700 mb-6">Orders</h2>
                 <div className="space-y-4">
                     {orders.map((order) => (
                         <div key={order.id} className="bg-white shadow-md rounded-lg p-6">

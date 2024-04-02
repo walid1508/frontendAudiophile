@@ -43,23 +43,25 @@ const Dashboard = () => {
 
 
     return (
-        <div>
+        <div className="flex flex-col justify-around min-h-screen">
             <Helmet>
                 <title>Audiophile | Admin</title>
-                <meta name="description" content="Admin page" />
+                <meta name="description" content="Admin page"/>
             </Helmet>
-            <h3 className="text-2xl font-extralight p-4">
-                Dashboard
-            </h3>
+            <div>
+                <h3 className="text-2xl font-extralight p-4">
+                    Dashboard
+                </h3>
 
-            <DashCard
-                productsCount={products.length}
-                categoriesCount={categories.length}
-                usersCount={users.length}
-                totalSales={0}
-            />
-            <div className="mt-20">
-                <MonthlySalesReport />
+                <DashCard
+                    productsCount={products.length}
+                    categoriesCount={categories.length}
+                    usersCount={users.length}
+                    totalSales={0}
+                />
+            </div>
+            <div>
+                <MonthlySalesReport/>
             </div>
         </div>
     );
