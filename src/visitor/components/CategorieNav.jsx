@@ -15,7 +15,7 @@ const CategorieNav = () => {
                 backgroundPosition: 'center'
             }}>
                 <h4 className="categories-navbar-card-title">HEADPHONES</h4>
-                <Link to="headphones" className="categories-navbar-card-button">SHOP</Link>
+                <Link to="/headphones" className="categories-navbar-card-button">SHOP</Link>
             </div>
             <div className="categories-navbar-card" style={{
                 backgroundImage: `url(${speakerImagePath})`,
@@ -24,7 +24,7 @@ const CategorieNav = () => {
                 backgroundPosition: 'center'
             }}>
                 <h4 className="categories-navbar-card-title">SPEAKERS</h4>
-                <Link to="speakers" className="categories-navbar-card-button">SHOP</Link>
+                <Link to="/speakers" className="categories-navbar-card-button">SHOP</Link>
             </div>
             <div className="categories-navbar-card" style={{
                 backgroundImage: `url(${earphoneImagePath})`,
@@ -33,7 +33,7 @@ const CategorieNav = () => {
                 backgroundPosition: 'center'
             }}>
                 <h4 className="categories-navbar-card-title">EARPHONES</h4>
-                <Link to="earphones" className="categories-navbar-card-button">SHOP</Link>
+                <Link to="/earphones" className="categories-navbar-card-button">SHOP</Link>
             </div>
         </div>
     );
