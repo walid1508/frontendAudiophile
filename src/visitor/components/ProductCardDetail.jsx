@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import { useContext, useEffect, useState } from 'react'
+import {CartContext} from "../../context/cart"
 
 
 const ProductCardDetail = ({ product }) => {
 
     const [quantity, setQuantity] = useState(1);
+    const [productToCart, setProductToCart] = useState({});
+    const { cartItems, addToCart } = useContext(CartContext)
+
 
     const incrementQuantity = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
@@ -12,9 +16,14 @@ const ProductCardDetail = ({ product }) => {
     const decrementQuantity = () => {
         setQuantity(prevQuantity => prevQuantity > 1 ? prevQuantity - 1 : 1);
     };
-    const AddToCart = () => {
-        console.log("Add to cart")
-    }
+
+    useEffect(() => {
+        setProductToCart({
+            ...product,
+            quantity: quantity
+        })
+    }, [quantity]);
+
 
     return (
         <div>
@@ -40,25 +49,26 @@ const ProductCardDetail = ({ product }) => {
                         <div className="flex items-center bg-gray-100 text-black">
                             <button
                                 onClick={decrementQuantity}
-                                className="px-2 py-4 text-lg font-semibold bg-gray-100 hover:bg-gray-200"
+                                className="px-2 py-3 text-lg font-semibold bg-gray-100 hover:bg-gray-200"
                             >
                                 -
                             </button>
-                            <span className="px-2 py-4 text-lg font-semibold">{quantity}</span>
+                            <span className="px-2 py-3 text-lg font-semibold">{quantity}</span>
                             <button
                                 onClick={incrementQuantity}
-                                className="px-2 py-4 text-lg font-semibold bg-gray-100 hover:bg-gray-200"
+                                className="px-2 py-3 text-lg font-semibold bg-gray-100 hover:bg-gray-200"
                             >
                                 +
                             </button>
                         </div>
                         <button
-                            onClick={AddToCart}
-                            className="bg-orange-500 text-sm text-white uppercase px-8 py-5 shadow hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-opacity-50"
+                            onClick={() => addToCart(productToCart)}
+                            className="bg-orange-500 text-sm text-white uppercase px-8 py-4 shadow hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-opacity-50"
                         >
                             Add to Cart
                         </button>
                     </div>
+
                 </div>
             </li>
         </div>

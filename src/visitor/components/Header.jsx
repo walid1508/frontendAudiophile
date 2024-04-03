@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 import {useContext} from "react";
 import {UserContext} from "../../context/userContext";
 import Avvvatars from 'avvvatars-react';
+import {CartContext} from "../../context/cart"
 
 
 const Header = () => {
     const { user, logout } = useContext(UserContext);
+    const { cartItems } = useContext(CartContext)
     return (
         <header className="bg-noir-1">
             <div className="container mx-auto px-4 md:px-6 lg:px-32 py-5">
@@ -38,6 +40,7 @@ const Header = () => {
                                         <Link to="earphones">EARPHONES</Link>
                                     </li>
 
+
                                     {user ? (
                                         <>
                                             <li>
@@ -49,12 +52,7 @@ const Header = () => {
                                         </>
                                     ) : (
                                         <>
-                                            <li>
-                                                <Link to="signin">SIGN IN</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="signup">SIGN UP</Link>
-                                            </li>
+
                                         </>
                                     )}
 
@@ -103,8 +101,11 @@ const Header = () => {
                             )}
 
 
-                            <Link to="cart" className="ml-4 ">
-                                <IoCartOutline className="text-white hover:text-orange-500" size="24px" />
+                            <Link to="/cart" className="ml-4 relative">
+                                <IoCartOutline className="text-white hover:text-orange-500 transition-colors duration-200" size="24px" />
+                                <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white font-bold rounded-full h-6 w-6 flex items-center justify-center text-xs">
+                                {cartItems.length}
+                                </span>
                             </Link>
                         </div>
                     </div>

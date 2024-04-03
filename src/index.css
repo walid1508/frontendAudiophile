@@ -703,6 +703,24 @@ Style pour la section x99 Headphone
 
 
 
+@keyframes addedToCart {
+    0% {
+        background-color: orange;
+    }
+    50% {
+        background-color: green;
+    }
+    100% {
+        background-color: orange;
+    }
+}
+
+.animate-add-to-cart {
+    animation: addedToCart 0.5s ease-out;
+}
+
+
+
 .new-product{
 
     font-family: Manrop;
