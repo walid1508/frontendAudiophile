@@ -103,9 +103,9 @@ const Header = () => {
                             )}
 
 
-                            <button className="ml-4 ">
+                            <Link to="cart" className="ml-4 ">
                                 <IoCartOutline className="text-white hover:text-orange-500" size="24px" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
