@@ -20,6 +20,7 @@ import Earphones from "./visitor/pages/Earphones";
 import Profile from "./visitor/pages/Profile";
 import React, {useEffect, useState} from "react";
 import RequiredAuth from "./auth/RequiredAuth";
+import ProductDetail from "./visitor/pages/ProductDetail";
 
 
 //Axios' configuration for the auth routes
@@ -58,6 +59,8 @@ function App() {
                       <Route path="earphones" element={<Earphones products = {products}/>} />
                       <Route path="headphones" element={<Headphones products = {products}/>} />
                       <Route path="speakers" element={<Speakers products = {products} />} />
+                      <Route path="/product/:id" element={<ProductDetail />} />
+
 
                       <Route element={<RequiredAuth allowedRoles={[2001]} />}>
                             <Route path="profile" element={<Profile  />} />

@@ -12,9 +12,6 @@ const Headphones = ({ products }) => {
     const headphones = products.filter(product => product.category === 'Headphones');
     const navigate = useNavigate();
 
-    const navigateHeadphone = () => {
-        navigate('/headphones')
-    }
 
     return (
         <div className="text-3xl font-extralight text-center">
@@ -28,8 +25,7 @@ const Headphones = ({ products }) => {
                     <ProductCard product_id={headphone._id}
                         product_name={headphone.name}
                         product_image={`http://localhost:4000/images/products/` + headphone.image}
-                        product_description={headphone.description}
-                        navigateHeadphone={navigateHeadphone} />
+                        product_description={headphone.description} />
                 </div>
 
             ))}
