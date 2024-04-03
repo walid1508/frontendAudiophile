@@ -11,13 +11,8 @@ const Earphones = ({products}) => {
 
     console.log( "products....",products)
     const earphones = products.filter(product => product.category === 'Earphones');
-    const navigate = useNavigate();
 
-    const navigateHeadphone = () => {
-        navigate('/earphones')
-    }
 
-   
     return (
         <div className="text-3xl font-extralight text-center">
             <Helmet>
@@ -31,7 +26,7 @@ const Earphones = ({products}) => {
                         product_name={earphone.name}
                         product_image={`http://localhost:4000/images/products/` + earphone.image}
                         product_description={earphone.description}
-                        navigateHeadphone={navigateHeadphone} />
+                         />
                 </div>
 
             ))}

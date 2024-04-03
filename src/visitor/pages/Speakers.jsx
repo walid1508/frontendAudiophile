@@ -11,10 +11,7 @@ const Speakers = ({ products }) => {
     console.log(products)
     const speakers = products.filter(product => product.category === 'Speakers');
     const navigate = useNavigate();
- 
-    const navigateHeadphone = () => {
-        navigate('/Speakers')
-    }
+
  
     return (
         <div className="text-3xl font-extralight text-center">
@@ -28,8 +25,7 @@ const Speakers = ({ products }) => {
                     <ProductCard product_id={speaker._id}
                         product_name={speaker.name}
                         product_image={`http://localhost:4000/images/products/` + speaker.image}
-                        product_description={speaker.description}
-                        navigateHeadphone={navigateHeadphone} />
+                        product_description={speaker.description} />
                 </div>
  
             ))}

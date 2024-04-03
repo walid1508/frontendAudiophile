@@ -637,8 +637,7 @@ Style pour la section x99 Headphone
     text-align: start;
 }
 
-.xx99-headphone-button{
-
+.xx99-headphone-button {
     width: 160px;
     height: 48px;
     flex-shrink: 0;
@@ -651,7 +650,58 @@ Style pour la section x99 Headphone
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-top: 40px;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
+.xx99-quantity-button {
+    width: 48px;
+    height: 48px;
+    background: #F1F1F1;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.xx99-quantity {
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 48px;
+}
+
+
+
+
+.product-detail-price{
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.286px;
+    text-transform: uppercase;
+}
+
+.product-card-gallery{
+    max-height: 150px;
+}
+
+
 
 .new-product{
 
