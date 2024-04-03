@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../context/cart';
 
 export default function Cart() {
-    const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } = useContext(CartContext);
+    const { cartItems, addToCart, removeFromCart, getCartTotal } = useContext(CartContext);
 
     return (
         <div className="flex flex-col items-center bg-white dark:bg-gray-800 gap-8 p-10 text-black dark:text-white font-normal text-sm rounded-lg shadow-lg max-w-3xl mx-auto my-20">
@@ -39,12 +39,6 @@ export default function Cart() {
                     <div className="flex flex-col items-center gap-4">
                         <h1 className="text-xl font-bold">Total: ${getCartTotal()}</h1>
                         <div className="flex gap-4">
-                            <button
-                                className="px-6 py-3 bg-red-500 text-white text-xs font-bold uppercase rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"
-                                onClick={() => clearCart()}
-                            >
-                                Clear cart
-                            </button>
                             <button
                                 className="px-6 py-3 bg-orange-500 text-white text-xs font-bold uppercase rounded hover:bg-orange-600 focus:outline-none focus:bg-blue-600"
                                 onClick={() => {}}
