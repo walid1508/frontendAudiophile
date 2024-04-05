@@ -22,6 +22,7 @@ import React, {useEffect, useState} from "react";
 import RequiredAuth from "./auth/RequiredAuth";
 import ProductDetail from "./visitor/pages/ProductDetail";
 import Cart from "./visitor/pages/Cart";
+import {CartProvider} from "./context/cart";
 
 
 
@@ -53,39 +54,41 @@ function App() {
 
   return (
       <UserContextProvider>
-          <Toaster position='bottom-right' toastOptions={{duration: 5000}} />
-          <BrowserRouter>
-              <Routes>
-                  <Route path="/" element={<VisitorLayout />} >
-                      <Route index element={<Home />} />
-                      <Route path="earphones" element={<Earphones products = {products}/>} />
-                      <Route path="headphones" element={<Headphones products = {products}/>} />
-                      <Route path="speakers" element={<Speakers products = {products} />} />
-                      <Route path="product/:id" element={<ProductDetail  />} />
-                      <Route path="cart" element={<Cart />} />
+          <CartProvider>
+              <Toaster position='bottom-right' toastOptions={{duration: 5000}} />
+              <BrowserRouter>
+                  <Routes>
+                      <Route path="/" element={<VisitorLayout />} >
+                          <Route index element={<Home />} />
+                          <Route path="earphones" element={<Earphones products = {products}/>} />
+                          <Route path="headphones" element={<Headphones products = {products}/>} />
+                          <Route path="speakers" element={<Speakers products = {products} />} />
+                          <Route path="product/:id" element={<ProductDetail  />} />
+                          <Route path="cart" element={<Cart />} />
 
-                      <Route element={<RequiredAuth allowedRoles={[2001]} />}>
-                            <Route path="profile" element={<Profile  />} />
+                          <Route element={<RequiredAuth allowedRoles={[2001]} />}>
+                              <Route path="profile" element={<Profile  />} />
+                          </Route>
                       </Route>
-                  </Route>
 
 
-                  <Route path="/admin" element={<AdminLayout />} >
-                      <Route element={<RequiredAuth allowedRoles={[5505]} />}>
-                          <Route index element={<Dashboard />} />
-                          <Route path="sales" element={<Sales />} />
-                          <Route path="clients" element={<Clients />} />
-                          <Route path="products" element={<Products />} />
-                          <Route path="categories" element={<Categories />} />
-                          <Route path="settings" element={<Settings />} />
+                      <Route path="/admin" element={<AdminLayout />} >
+                          <Route element={<RequiredAuth allowedRoles={[5505]} />}>
+                              <Route index element={<Dashboard />} />
+                              <Route path="sales" element={<Sales />} />
+                              <Route path="clients" element={<Clients />} />
+                              <Route path="products" element={<Products />} />
+                              <Route path="categories" element={<Categories />} />
+                              <Route path="settings" element={<Settings />} />
+                          </Route>
                       </Route>
-                  </Route>
 
-                  <Route path="*" element={<NotFound />} />
-                  <Route path="signin" element={<SignIn />} />
-                  <Route path="signup" element={<SignUp />} />
-              </Routes>
-          </BrowserRouter>
+                      <Route path="*" element={<NotFound />} />
+                      <Route path="signin" element={<SignIn />} />
+                      <Route path="signup" element={<SignUp />} />
+                  </Routes>
+              </BrowserRouter>
+          </CartProvider>
       </UserContextProvider>
   );
 }
