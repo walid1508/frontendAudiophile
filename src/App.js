@@ -80,7 +80,7 @@ function App() {
 
 
                       <Route path="/admin" element={<AdminLayout />} >
-                          <Route element={<RequiredAuth allowedRoles={[5505]} />}>
+                          <Route element={<RequiredAuth allowedRoles={[5505,  ]} />}>
                               <Route index element={<Dashboard />} />
                               <Route path="sales" element={<Sales />} />
                               <Route path="clients" element={<Clients />} />
