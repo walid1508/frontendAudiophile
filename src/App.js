@@ -23,6 +23,9 @@ import RequiredAuth from "./auth/RequiredAuth";
 import ProductDetail from "./visitor/pages/ProductDetail";
 import Cart from "./visitor/pages/Cart";
 import {CartProvider} from "./context/cart";
+import Catalogue from "./visitor/pages/Catalogue";
+import Confirmation from "./visitor/pages/Confirmation";
+import PageTest from "./visitor/pages/PageTest";
 
 
 
@@ -60,11 +63,16 @@ function App() {
                   <Routes>
                       <Route path="/" element={<VisitorLayout />} >
                           <Route index element={<Home />} />
+                          <Route path="catalogue" element={<Catalogue products = {products} />} />
                           <Route path="earphones" element={<Earphones products = {products}/>} />
                           <Route path="headphones" element={<Headphones products = {products}/>} />
                           <Route path="speakers" element={<Speakers products = {products} />} />
                           <Route path="product/:id" element={<ProductDetail  />} />
                           <Route path="cart" element={<Cart />} />
+
+                          <Route path="pagetest" element={<PageTest />} />
+
+                          <Route path="confirmation" element={<Confirmation />} />
 
                           <Route element={<RequiredAuth allowedRoles={[2001]} />}>
                               <Route path="profile" element={<Profile  />} />
@@ -73,7 +81,7 @@ function App() {
 
 
                       <Route path="/admin" element={<AdminLayout />} >
-                          <Route element={<RequiredAuth allowedRoles={[5505]} />}>
+                          <Route element={<RequiredAuth allowedRoles={[5505, 2001]} />}>
                               <Route index element={<Dashboard />} />
                               <Route path="sales" element={<Sales />} />
                               <Route path="clients" element={<Clients />} />

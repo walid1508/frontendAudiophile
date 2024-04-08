@@ -65,16 +65,24 @@ const Header = () => {
                         <nav className="navbar-center hidden md:flex">
                             <ul className="menu menu-horizontal p-0">
                                 <li>
-                                    <Link to="/" className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">HOME</Link>
+                                    <Link to="/"
+                                          className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">HOME</Link>
                                 </li>
                                 <li>
-                                    <Link to="headphones" className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">HEADPHONES</Link>
+                                    <Link to="catalogue"
+                                          className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">CATALOGUE</Link>
                                 </li>
                                 <li>
-                                    <Link to="speakers" className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">SPEAKERS</Link>
+                                    <Link to="headphones"
+                                          className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">HEADPHONES</Link>
                                 </li>
                                 <li>
-                                    <Link to="earphones" className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">EARPHONES</Link>
+                                    <Link to="speakers"
+                                          className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">SPEAKERS</Link>
+                                </li>
+                                <li>
+                                    <Link to="earphones"
+                                          className="font-semibold text-white hover:text-orange-500 focus:text-orange-600">EARPHONES</Link>
                                 </li>
                             </ul>
                         </nav>
@@ -82,7 +90,7 @@ const Header = () => {
 
                             {user ? (
                                 <>
-                                    <Link to="profile" className="text-white hover:text-orange-500">
+                                <Link to="profile" className="text-white hover:text-orange-500">
                                         <Avvvatars value={ user.name.toUpperCase()} displayValue={ user.name.toUpperCase()} style={"shape"} />
                                     </Link>
                                     <Link to="/" onClick={logout} className="ml-4 text-white hover:text-orange-500">

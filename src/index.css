@@ -143,8 +143,6 @@ Style pour la Barre de navigation de categories
     width: 350px;
     height: 284px;
     flex-shrink: 0;
-    border-radius: 8px;
-    background: #F1F1F1;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -788,5 +786,18 @@ Style pour la section x99 Headphone
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

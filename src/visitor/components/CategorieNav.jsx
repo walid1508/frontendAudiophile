@@ -8,7 +8,7 @@ const CategorieNav = () => {
 
     return (
         <div className="categorie-navbar">
-            <div className="categories-navbar-card" style={{
+            <div className="categories-navbar-card bg-white rounded-xl" style={{
                 backgroundImage: `url(${headphoneImagePath})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
@@ -17,7 +17,7 @@ const CategorieNav = () => {
                 <h4 className="categories-navbar-card-title">HEADPHONES</h4>
                 <Link to="/headphones" className="categories-navbar-card-button">SHOP</Link>
             </div>
-            <div className="categories-navbar-card" style={{
+            <div className="categories-navbar-card bg-white rounded-xl" style={{
                 backgroundImage: `url(${speakerImagePath})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
@@ -26,7 +26,7 @@ const CategorieNav = () => {
                 <h4 className="categories-navbar-card-title">SPEAKERS</h4>
                 <Link to="/speakers" className="categories-navbar-card-button">SHOP</Link>
             </div>
-            <div className="categories-navbar-card" style={{
+            <div className="categories-navbar-card bg-white rounded-xl" style={{
                 backgroundImage: `url(${earphoneImagePath})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',

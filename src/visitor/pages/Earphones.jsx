@@ -2,9 +2,8 @@ import React from 'react';
 import {Helmet} from "react-helmet";
 import Credit from "../components/Credit";
 import CategorieNav from "../components/CategorieNav";
-import ProductCard from "../components/ProductCard";
 import TitleCard from '../components/TitleCard';
-import { useNavigate } from "react-router-dom";
+import ProductCard from "../components/ProductCard";
 
 const Earphones = ({products}) => {
 
@@ -14,30 +13,29 @@ const Earphones = ({products}) => {
 
 
     return (
-        <div className="text-3xl font-extralight text-center">
+        <>
             <Helmet>
                 <title>Audiophile | Earphones</title>
-                <meta name="description" content="Headphones page" />
+                <meta name="description" content="Earphones page"/>
             </Helmet>
-            <TitleCard title={"EARPHONES"} />
-            {earphones.map(earphone => (
-                <div className="space-between-component">
-                    <ProductCard product_id={earphone._id}
-                        product_name={earphone.name}
-                        product_image={`http://localhost:4000/images/products/` + earphone.image}
-                        product_description={earphone.description}
-                         />
+            <TitleCard title={"EARPHONES"}/>
+            <div className='flex flex-col justify-center container mx-auto px-4 md:px-8 lg:px-32'>
+                <div className='mx-auto grid max-w-screen-xl grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3'>
+                    {
+                        earphones.map(product => (
+                            <ProductCard product={product}/>
+                        ))
+                    }
                 </div>
-
-            ))}
+            </div>
             <div className="space-between-component">
-                <CategorieNav />
+                <CategorieNav/>
             </div>
 
             <div className="space-between-component">
-                <Credit />
+                <Credit/>
             </div>
-        </div>
+        </>
     );
 };
 

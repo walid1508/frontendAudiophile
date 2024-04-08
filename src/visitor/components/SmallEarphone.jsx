@@ -16,12 +16,11 @@ const SmallEarphone = () => {
                 <img src={smallEarphoneImage} alt="" className="rounded-lg small-earphone-image" />
             </div>
             <div style={{flex: '1',
-                backgroundColor: '#F1F1F1',
                 borderRadius: '8px',
                 height: '320px',
                 display: 'flex',
                 justifyContent: 'center'
-            }} className="flex flex-col items-center small-earphone-right">
+            }} className="flex flex-col items-center small-earphone-right bg-white">
                 <h3 className="hero-title-2">
                     ZYX1 EARPHONES
                 </h3>
