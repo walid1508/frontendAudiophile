@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { format } from 'date-fns';
 
 const Sales = () => {
     const [sales, setSales] = useState([]);
@@ -67,7 +68,7 @@ const Sales = () => {
     return (
         <div>
             <h3 className="text-2xl font-medium py-4">
-                Orders
+                Sales
             </h3>
             <div>
                 <div className="space-y-4">
@@ -77,8 +78,10 @@ const Sales = () => {
                                 <h3 onClick={() => toggleAccordion(orderIndex)}
                                     className="text-lg font-semibold text-gray-800 cursor-pointer">
                                 <span
-                                    className="bg-emerald-200 rounded-full p-2">Order #{order._id.slice(0, 10)}</span> - {findUserNameById(order.userId)} -
-                                    Click to view products
+                                    className="bg-emerald-200 rounded-full p-2">Order #{order._id.slice(0, 10)}</span> -
+                                    <span className="bg-orange-200 rounded-full p-2 mx-1">{findUserNameById(order.userId)}</span> -
+                                    <span className="bg-red-200 rounded-full p-2 mx-1">{format(new Date(order.date), 'PPPpp')}</span>
+                                    <span className="font-extrabold">Click to view products</span>
                                 </h3>
                                 <div>
                                     <button className="bg-blue-500 hover-bg-blue-600 text-white px-2 rounded-full mr-2"

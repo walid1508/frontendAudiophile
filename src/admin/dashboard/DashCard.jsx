@@ -5,7 +5,7 @@ const DashCard = ({ productsCount, categoriesCount, usersCount, totalSales}) => 
     return (
         <div className="flex justify-between space-x-4">
             <div className="bg-blue-500 text-white p-4 rounded-lg shadow-md w-1/4">
-                <h2 className="text-2xl font-bold">{totalSales} CAD</h2>
+                <h2 className="text-2xl font-bold">{totalSales}</h2>
                 <p>Total Sales</p>
                 <Link to="sales" className="mt-4 text-blue-200 hover:text-white">More Info</Link>
             </div>

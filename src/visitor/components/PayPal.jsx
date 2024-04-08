@@ -65,14 +65,17 @@ const PayPal = () => {
                     console.log(productsFromCart);
 
                     const totalAmount = getCartTotal();
-                    const date = new Date();
                     const userId = user?.id;
                     const address = '1234 Main St, Montreal, QC, H3Z 2Y7'
+
+
+                    console.log('Total amount:', totalAmount);
+                    console.log('User ID:', userId);
+                    console.log('Address:', address);
 
                     axios.post('http://localhost:4000/sales', {
                         product: productsFromCart,
                         totalAmount,
-                        date,
                         userId,
                         address,
                     }).then(res => {

@@ -8,6 +8,7 @@ const Dashboard = () => {
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [users, setUsers] = useState([]);
+    const [sales, setSales] = useState([]);
 
     const fetchCategories = () => {
         axios.get('http://localhost:4000/categories')
@@ -33,12 +34,21 @@ const Dashboard = () => {
             .catch(error => console.error('Error: ', error));
     }
 
+    const fetchSales = () => {
+        axios.get('http://localhost:4000/sales')
+            .then(res => {
+                setSales(res.data);
+            })
+            .catch(error => console.error('Error: ', error));
+    }
+
 
 
     useEffect(() => {
         fetchCategories();
         fetchProducts();
         fetchUsers();
+        fetchSales();
     }, []);
 
 
@@ -57,7 +67,7 @@ const Dashboard = () => {
                     productsCount={products.length}
                     categoriesCount={categories.length}
                     usersCount={users.length}
-                    totalSales={0}
+                    totalSales={sales.length}
                 />
             </div>
             <div>
