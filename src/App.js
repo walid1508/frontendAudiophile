@@ -70,18 +70,17 @@ function App() {
                           <Route path="product/:id" element={<ProductDetail  />} />
                           <Route path="cart" element={<Cart />} />
 
-                          <Route path="pagetest" element={<PageTest />} />
 
-                          <Route path="confirmation" element={<Confirmation />} />
 
                           <Route element={<RequiredAuth allowedRoles={[2001]} />}>
                               <Route path="profile" element={<Profile  />} />
+                              <Route path="confirmation" element={<Confirmation />} />
                           </Route>
                       </Route>
 
 
                       <Route path="/admin" element={<AdminLayout />} >
-                          <Route element={<RequiredAuth allowedRoles={[5505, 2001]} />}>
+                          <Route element={<RequiredAuth allowedRoles={[5505]} />}>
                               <Route index element={<Dashboard />} />
                               <Route path="sales" element={<Sales />} />
                               <Route path="clients" element={<Clients />} />
