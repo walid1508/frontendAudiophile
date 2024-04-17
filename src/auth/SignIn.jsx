@@ -29,7 +29,14 @@ const SignIn = () => {
             if (userData.error) {
                 return toast.error(userData.error);
             } else {
-                setUser(userData);
+
+                axios.get('/profile').then(({data}) => {
+                    setUser(data);
+                }).catch((error) => {
+                    console.log(error);
+                    setUser(null);
+                });
+
                 toast.success(`${userData.name}, welcome back!`);
                 setData({ email: '', password: '' });
 

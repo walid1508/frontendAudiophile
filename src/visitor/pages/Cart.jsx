@@ -1,18 +1,112 @@
-import { useContext } from 'react';
+import React, {useContext, useEffect, useRef} from 'react';
 import { CartContext } from '../../context/cart';
 import { UserContext } from "../../context/userContext";
 import axios from "axios";
 import PayPal from "../components/PayPal";
 import SkeletonLoader from "../components/SkeletonLoader";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
     const { cartItems, addToCart, removeFromCart, getCartTotal, clearCart } = useContext(CartContext);
     const { user, isLoading } = useContext(UserContext);
+    const paypal = useRef();
+    const navigate = useNavigate();
 
 
     const deleteAll = async () => {
         clearCart();
     };
+
+    useEffect(() => {
+        if (window.paypal && paypal.current && !paypal.current.hasChildNodes()) {
+            window.paypal.Buttons({
+                style: {
+                    layout: 'horizontal',
+                    color: 'gold',
+                    shape: 'rect',
+                    size: 'large',
+                    label: 'pay',
+                },
+                createOrder: (data, actions, err) => {
+                    const total = getCartTotal().toString();
+
+                    return actions.order.create({
+                        intent: "CAPTURE",
+                        purchase_units: [{
+                            description: "Items from your cart",
+                            amount: {
+                                currency_code: "CAD",
+                                value: total,
+                                breakdown: {
+                                    item_total: {
+                                        currency_code: "CAD",
+                                        value: total,
+                                    }
+                                }
+                            },
+                            items: cartItems.map(item => ({
+                                name: item.name,
+                                unit_amount: {
+                                    currency_code: "CAD",
+                                    value: item.price.toString(),
+                                },
+                                quantity: item.quantity.toString(),
+                            })),
+                        }],
+                    });
+                },
+                onApprove: async (data, actions) => {
+                    const order = await actions.order.capture();
+                    console.log(order);
+
+                    const productsFromCart = cartItems.map(item => ({
+                        quantity: item.quantity,
+                        item: item.name,
+                        price: item.price,
+                    }));
+
+                    console.log(order);
+                    console.log(productsFromCart);
+
+                    const totalAmount = getCartTotal();
+                    const userId = user?.id;
+
+                    console.log('User :', userId);
+
+                    const address = '1234 Main St, Montreal, QC, H3Z 2Y7'
+
+
+                    console.log('Total amount:', totalAmount);
+                    console.log('User ID:', userId);
+                    console.log('Address:', address);
+
+                    axios.post('http://localhost:4000/sales', {
+                        product: productsFromCart,
+                        totalAmount,
+                        userId,
+                        address,
+                    }).then(res => {
+                        navigate('/confirmation');
+                        clearCart();
+                        console.log('Suis dans le then');
+                    }).catch(error => {
+                        console.error('Error: ', error);
+                    });
+
+                    clearCart();
+                },
+            }).render(paypal.current);
+        }
+    }, [cartItems, getCartTotal, clearCart, user]);
+
+
+    console.log('User:', user);
+
+
+
+
+
+
 
     if (isLoading) {
         return <SkeletonLoader />;
@@ -48,7 +142,9 @@ export default function Cart() {
             <div className="my-3 px-5 flex justify-end">
                 {cartItems.length > 0 && (
                     user ? (<>
-                        <PayPal/>
+                        <div>
+                            <div ref={paypal}></div>
+                        </div>
                     </>) : <p className="text-center text-lg font-bold">Please login to proceed to checkout</p>
                 )}
             </div>

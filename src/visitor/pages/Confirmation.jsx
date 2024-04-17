@@ -4,10 +4,13 @@ import { useContext } from "react";
 import { UserContext } from "../../context/userContext";
 import { format } from 'date-fns';
 import {Link} from "react-router-dom";
+import { IoCheckmarkDoneOutline } from "react-icons/io5";
 
 const Confirmation = () => {
     const [sale, setSale] = useState(null);
     const { user, isLoading } = useContext(UserContext);
+
+    console.log(user);
 
     const fetchSales = () => {
         axios.get('http://localhost:4000/sales')
@@ -34,8 +37,9 @@ const Confirmation = () => {
         <>
             <section className="container mx-auto px-4 md:px-8 lg:px-32">
                 <div className="w-full my-10">
-                    <h2 className="font-manrope font-bold text-4xl leading-10 text-emerald-500 text-center">
-                        Payment Successful
+                    <h2 className="font-manrope font-bold text-4xl leading-10 text-emerald-500 text-center py-2">
+                        <IoCheckmarkDoneOutline className="inline-block text-5xl text-emerald-500 m-3" />
+                        <span>Order Confirmed</span>
                     </h2>
                     <p className="mt-4 font-normal text-lg leading-8 text-gray-500 mb-11 text-center">
                         Thanks for making a purchase. You can check your order summary below.
