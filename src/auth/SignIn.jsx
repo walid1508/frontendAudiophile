@@ -37,10 +37,10 @@ const SignIn = () => {
                     setUser(null);
                 });
 
-                toast.success(`${userData.name}, welcome back!`);
+                toast.success(`${user.name}, welcome back!`);
                 setData({ email: '', password: '' });
 
-                const userRoles = Object.values(userData.roles || {});
+                const userRoles = Object.values(user.roles || {});
 
                 if (userRoles.includes(5505)) {
                     navigate('/admin');
@@ -52,7 +52,7 @@ const SignIn = () => {
             }
         } catch (error) {
             console.error(error);
-            toast.error('An error occurred during login.');
+            //toast.error('An error occurred during login.');
         }
     };
 
