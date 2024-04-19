@@ -1,8 +1,8 @@
 import DashCard from "./DashCard";
-import MonthlySalesReport from "./MonthlySalesReport";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Helmet} from "react-helmet";
+import DailySalesReport from "./DailySalesReport";
 
 const Dashboard = () => {
     const [categories, setCategories] = useState([]);
@@ -71,7 +71,9 @@ const Dashboard = () => {
                 />
             </div>
             <div>
-                <MonthlySalesReport/>
+                <DailySalesReport
+                    sales={sales}
+                />
             </div>
         </div>
     );
